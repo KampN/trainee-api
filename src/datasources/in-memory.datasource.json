@@ -1,6 +1,0 @@
-{
-  "name": "InMemory",
-  "connector": "memory",
-  "localStorage": "db",
-  "file": "C:\\Users\\Polochon\\Development\\Workspace\\trainee-api\\db.json"
-}

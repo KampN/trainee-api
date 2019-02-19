@@ -1,0 +1,104 @@
+version: 2.1
+
+anchor_1: &wdir
+  working_directory: ~/app
+anchor_2: &docker_auth
+  auth:
+    username: $DOCKER_LOGIN
+    password: $DOCKER_PASSWORD
+
+executors:
+  node:
+    <<: *wdir
+    docker:
+    - image: circleci/node:11
+  machine:
+    <<: *wdir
+    machine: true
+
+commands:
+  npm_run:
+    parameters:
+      cmd:
+        type: string
+      cmd_name:
+        type: string
+    steps:
+    - run:
+        name: << parameters.cmd_name >>
+        command: npm run << parameters.cmd >>
+
+jobs:
+
+  install_dependencies:
+    executor: node
+    steps:
+    - checkout
+    - attach_workspace:
+        at: ~/app
+    - restore_cache:
+        key: dependency-cache-{{ checksum "package.json" }}
+    - run:
+        name: Setup Dependencies
+        command: npm install --silent
+    - save_cache:
+        key: dependency-cache-{{ checksum "package.json" }}
+        paths:
+        - ./node_modules
+    - persist_to_workspace:
+        root: .
+        paths: node_modules
+
+  build_app:
+    executor: node
+    steps:
+    - checkout
+    - attach_workspace:
+        at: ~/app
+    - npm_run:
+        cmd_name: Build app
+        cmd: build
+    - persist_to_workspace:
+        root: .
+        paths: dist
+
+  build_image:
+    executor: machine
+    parameters:
+      dockerfile:
+        type: string
+      image_tag:
+        type: string
+    steps:
+    - checkout
+    - attach_workspace:
+        at: ~/app
+    - run:
+        name: Docker login
+        command: |
+          docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD
+    - run:
+        name: Build docker image
+        command: |
+          docker build -t << parameters.image_tag >> -f << parameters.dockerfile >> .
+    - run:
+        name: Push docker image
+        command: |
+          docker push << parameters.image_tag >>
+
+workflows:
+
+  deploy:
+    jobs:
+    - install_dependencies
+
+    - build_app:
+        requires:
+        - install_dependencies
+
+    - build_image:
+        context: "open source"
+        dockerfile: docker/Dockerfile
+        image_tag: kampn/trainee-api:latest
+        requires:
+        - build_app
