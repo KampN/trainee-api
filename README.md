@@ -12,6 +12,7 @@ The application is a user management app, you will connect to an API to retrieve
 You are free to use any frameworks.
 
 You will connect to the API at this address https://trainee-api.pleiads.fr
+
 Here are all the routes of the API  https://trainee-api.pleiads.fr/explorer
 
 The design of the page should be simple and user friendly.
