@@ -5,6 +5,7 @@ export {TraineeApiApplication};
 
 export async function main(options:ApplicationConfig = {}) {
 
+	options.rest.port = '80';
 	options.rest.host = '0.0.0.0';
 
 	const app = new TraineeApiApplication(options);
