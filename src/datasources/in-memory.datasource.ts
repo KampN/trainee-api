@@ -1,6 +1,6 @@
 import {inject} from '@loopback/core';
 import {juggler} from '@loopback/repository';
-import path from 'path';
+import * as path from 'path';
 
 const DBConfig = {
 	'name': 'InMemory',

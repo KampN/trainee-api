@@ -4,6 +4,9 @@ import {ApplicationConfig} from '@loopback/core';
 export {TraineeApiApplication};
 
 export async function main(options:ApplicationConfig = {}) {
+
+	options.rest.host = '0.0.0.0';
+
 	const app = new TraineeApiApplication(options);
 	await app.boot();
 	await app.start();
