@@ -8,7 +8,6 @@ RUN apk --update add git openssh && \
 COPY . /srv
 
 WORKDIR /srv
-RUN ls -lah
 
 RUN npm i --only=production
 
