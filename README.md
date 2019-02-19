@@ -20,31 +20,32 @@ The design of the page should be simple and user friendly.
 e.g. of a route to get all users :
 GET https://trainee-api.pleiads.fr/users 
 It will return :
-```
+
+```json
 [
-{
-"id": 0,
-"firstName": "Gérard",
-"lastName": "Piquet",
-"email": "piquet.gerard@gmail.com"
-},
-{
-"id": 1,
-"firstName": "Maurice",
-"lastName": "Donald",
-"email": "donald.maurice@gmail.com"
-},
-{
-"id": 2,
-"firstName": "Johnny",
-"lastName": "Walker",
-"email": "johnny.walker@gmail.com"
-},
-{
-"id": 3,
-"firstName": "Charles",
-"lastName": "Martin-laval",
-"email": "c.mlaval@gmail.com"
-}
+	{
+		"id": 0,
+		"firstName": "Gérard",
+		"lastName": "Piquet",
+		"email": "piquet.gerard@gmail.com"
+	},
+	{
+		"id": 1,
+		"firstName": "Maurice",
+		"lastName": "Donald",
+		"email": "donald.maurice@gmail.com"
+	},
+	{
+		"id": 2,
+		"firstName": "Johnny",
+		"lastName": "Walker",
+		"email": "johnny.walker@gmail.com"
+	},
+	{
+		"id": 3,
+		"firstName": "Charles",
+		"lastName": "Martin-laval",
+		"email": "c.mlaval@gmail.com"
+	}
 ]
 ```
