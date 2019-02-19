@@ -46,14 +46,3 @@ It will return :
 }
 ]
 ```
-***
-# Some Resources:
-How to connect to an api in angularJs:
-[https://tutorialedge.net/javascript/angularjs/interacting-with-apis-using-http-angularjs/]
-
-Use of promise:
-[https://blog.ippon.fr/2015/01/23/les-promesses-en-angularjs-13/]
-
-Angular ng-repeat:
-[https://docs.angularjs.org/api/ng/directive/ngRepeat]
-
