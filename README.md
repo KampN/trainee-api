@@ -11,41 +11,11 @@ The application is a user management app, you will connect to an API to retrieve
 
 You are free to use any frameworks.
 
-You will connect to the API at this address https://trainee-api.pleiads.fr
-
-Here are all the routes of the API  https://trainee-api.pleiads.fr/explorer
+You will connect to the API at this address https://mockapi.io/clone/6053764f45e4b30017291bf5
 
 The design of the page should be simple and user friendly.
 
 e.g. of a route to get all users :
-GET https://trainee-api.pleiads.fr/users 
-It will return :
+GET https://6053764f45e4b30017291bf4.mockapi.io/users 
 
-```json
-[
-	{
-		"id": 0,
-		"firstName": "Gérard",
-		"lastName": "Piquet",
-		"email": "piquet.gerard@gmail.com"
-	},
-	{
-		"id": 1,
-		"firstName": "Maurice",
-		"lastName": "Donald",
-		"email": "donald.maurice@gmail.com"
-	},
-	{
-		"id": 2,
-		"firstName": "Johnny",
-		"lastName": "Walker",
-		"email": "johnny.walker@gmail.com"
-	},
-	{
-		"id": 3,
-		"firstName": "Charles",
-		"lastName": "Martin-laval",
-		"email": "c.mlaval@gmail.com"
-	}
-]
-```
+Be carefull, every post and put are mocked by mokapi.io... so your data won't be persisted!!!!
